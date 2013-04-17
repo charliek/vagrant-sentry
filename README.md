@@ -24,9 +24,13 @@ Clone it from github
 
 $ `git clone git://github.com/charliek/vagrant-sentry.git`
 
-Change into the directory with the vagrant file:
+If you are on a 1.1.x vagrant verison:
 
-$ `cd vagrant-sentry/vagrant/1.1.x`
+$cd vagrant-sentry/vagrant/1.1.x
+
+If you are on a 1.0.x vagrant verison:
+
+$cd vagrant-sentry/vagrant/1.0.x
 
 Start the image:
 
