@@ -4,7 +4,7 @@ description "Setup sentry server"
 default_attributes(
 	:postgresql => {
 		:password => {
-			:postgres => "md5305b26ef6df948d22b93b625e1340c5a"
+			:postgres => "md5305b26ef6df948d22b93b625e1340c5a" # password1
 		}
 	}
 )
@@ -14,6 +14,7 @@ run_list [
 	"recipe[supervisor]",
 	"recipe[postgresql::server]", 
 	"recipe[postgresql::client]", 
-	"recipe[postgresql::ruby]", 
+	"recipe[postgresql::ruby]",
+	"recipe[nginx]",
 	"recipe[sentry]"
 ]

@@ -1,5 +1,20 @@
 include_recipe 
 
+template "#{node[:nginx][:dir]}/sites-available/sentry.conf" do
+  source 'nginx.conf.erb'
+  owner 'root'
+  group 'root'
+  mode 00644
+  notifies :reload, "service[nginx]"
+end
+
+nginx_site "sentry.conf"
+
+nginx_site "default" do
+  enable false
+end
+
+
 user "www-sentry" do
   comment "user account that sentry will run under"
   system true
