@@ -24,7 +24,7 @@ log_level          :info
 # no quotes.
 # Corresponds to chef-solo -L
 
-log_location       "/var/log/chef/solo.log"
+log_location       STDOUT #"/var/log/chef/solo.log"
 
 # file_cache_path specifies where solo should look for the cookbooks to use
 # valid value is any filesystem directory location. This is slightly

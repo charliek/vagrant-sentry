@@ -41,8 +41,12 @@ Now you can [login][vagrant_login] with the username and password you setup when
 Setup Using Chef Solo
 ---------------------
 
-A start of this is done using [fabric]. To start navigate to this directory. This recipe also puts in place some
-basic firewall settings, but there is much more tweaking needed before this is produciton ready.
+Only tested on Ubuntu 12.04
+
+Included is a [fabric] file that can be used to install chef, sync the chef cookbooks, and run chef solo.
+To start navigate to this directory. Before using something like this in production you should make sure
+you understand what it is doing. There is till work to be done to make this production ready. Note that
+running the included script will redo any firewall rules to only allow incoming connections on 22 and 80.
 
 Clone it from github
 
@@ -50,12 +54,19 @@ $ `git clone git://github.com/charliek/vagrant-sentry.git`
 
 $ `cd vagrant-sentry`
 
-Currently you need to [install chef][chef_install] on the remote box manually, but I hope to automate this in the future. You will also
-need to [install fabric][fab_install] locally which will be used to do the automation.
+[Install fabric][fab_install] on your local machine if it is not already in place.
 
-Execute the fabric file to sync the cookbooks and run chef solo. Note you must substitute the host name with the actual host name.
+On your remote server make sure you have a recent version of chef 10.x.x installed. Currently this recipe
+will not work on chef 11.x.x, but hopefully soon. If you don't have chef installed on your server you can
+easily install it by executing (Note you must substitute your host name):
+
+$ `fab -H 123.456.789.0 -u root install_chef`
+
+To sync the chef files and execute chef solo run the below command (Note you must substitute your host name):
 
 $ `fab -H 123.456.789.0 -u root install_sentry`
+
+If you don't see any errors you should not see sentry running on port 80.
 
 [vagrant]: http://www.vagrantup.com/
 [vagrant_login]: http://192.168.33.11:9000/login/
