@@ -41,8 +41,8 @@ Now you can [login][vagrant_login] with the username and password you setup when
 Setup Using Chef Solo
 ---------------------
 
-A start of this is done using [fabric]. To start navigate to this directory. Note that currently there is no firewall
-setup in this recipe so please consider adding this before using.
+A start of this is done using [fabric]. To start navigate to this directory. This recipe also puts in place some
+basic firewall settings, but there is much more tweaking needed before this is produciton ready.
 
 Clone it from github
 

@@ -35,5 +35,5 @@ def sync_chef_solo_config():
 def install_sentry():
     sync_chef()
     sync_chef_solo_config()
-    sudo('chef-solo -j /var/chef/solo-nodes/sentry-node.json')
+    sudo('chef-solo -j /var/chef/solo-nodes/sentry-node-solo.json')
 

@@ -1,5 +1,3 @@
-include_recipe 
-
 template "#{node[:nginx][:dir]}/sites-available/sentry.conf" do
   source 'nginx.conf.erb'
   owner 'root'
