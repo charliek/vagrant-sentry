@@ -15,14 +15,7 @@ This is rough but it does work to run it locally. To get this working you need t
 Clone it from github
 
 $ `git clone git://github.com/charliek/vagrant-sentry.git`
-
-If you are on a 1.1.x vagrant verison:
-
-$ `cd vagrant-sentry/vagrant/1.1.x`
-
-If you are on a 1.0.x vagrant verison:
-
-$ `cd vagrant-sentry/vagrant/1.0.x`
+$ `cd vagrant-sentry/vagrant`
 
 Start the image:
 
@@ -33,6 +26,7 @@ Login to the image and create you super users by executing the below command and
 ```
 $ vagrant ssh
 $ /www/sentry/bin/sentry --config=/etc/sentry.conf.py createsuperuser
+$ /www/sentry/bin/sentry --config=/etc/sentry.conf.py repair --owner=<username>
 $ exit
 ```
 

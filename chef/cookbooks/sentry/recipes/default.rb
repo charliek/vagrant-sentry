@@ -68,14 +68,20 @@ postgresql_database_user 'www-sentry' do
   action [:create, :grant]
 end
 
-# On first install you may need to bootstrap users by doing: /www/sentry/bin/sentry --config=/etc/sentry.conf.py createsuperuser
+# On first install you may need to bootstrap users by doing:
+# * /www/sentry/bin/sentry --config=/etc/sentry.conf.py createsuperuser
+# * /www/sentry/bin/sentry --config=/etc/sentry.conf.py repair --owner=<username>
+
 execute "sentry migrations" do
   command "/www/sentry/bin/sentry --config=/etc/sentry.conf.py upgrade --noinput"
 end
 
-supervisor_service "celery" do
+supervisor_service "sentry-web" do
   action :enable
   autostart true
+  autorestart true
+  redirect_stderr true
   user "www-sentry"
-  command "/www/sentry/bin/sentry --config=/etc/sentry.conf.py start"
+  directory "/www/sentry/"
+  command "/www/sentry/bin/sentry --config=/etc/sentry.conf.py start http"
 end

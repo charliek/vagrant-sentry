@@ -53,7 +53,7 @@ SENTRY_KEY = 'Lq/bOTZ6png0Hw2HyzQftLOr5bHlWELaYxW71yVkBnUeCmnBhqKocA=='
 
 # You should configure the absolute URI to Sentry. It will attempt to guess it if you don't
 # but proxies may interfere with this.
-# SENTRY_URL_PREFIX = 'http://sentry.example.com'  # No trailing slash!
+SENTRY_URL_PREFIX = 'http://192.168.33.11'  # No trailing slash!
 
 SENTRY_WEB_HOST = '0.0.0.0'
 SENTRY_WEB_PORT = 9000
@@ -74,6 +74,8 @@ EMAIL_HOST_PASSWORD = ''
 EMAIL_HOST_USER = ''
 EMAIL_PORT = 25
 EMAIL_USE_TLS = False
+
+SOCIAL_AUTH_CREATE_USERS = False
 
 # http://twitter.com/apps/new
 # It's important that input a callback URL, even if its useless. We have no idea why, consult Twitter.
